@@ -1,10 +1,15 @@
 ---
 layout: page
-title: Hello Blog!
+title: Home
 tagline:
 ---
 {% include JB/setup %}
 
-This is my own blog site within the help of [Jekyll-Bootstrap](http://jekyllbootstrap.com).
+Scratching to build my blog, [Halt in Air](http://malikey.github.io), within the help of [Jekyll-Bootstrap](http://jekyllbootstrap.com).
 
-Scratching to build my home -- [Halt in Air](http://malikey.github.io).
+
+<ul class="posts">
+  {% for post in site.posts %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
