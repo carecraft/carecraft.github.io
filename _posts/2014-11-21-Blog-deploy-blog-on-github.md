@@ -51,7 +51,7 @@ After this step, you will get a directory with structure like so:
 └── sitemap.txt
 ```
 
-`_posts` saves all of blogs in form of `YEAR-MONTH-DAY-title.md`. You can get a brief introduction at [jekyll official website](http://jekyllrb.com/docs/structure/).
+`_posts` saves all of blogs in format of `YEAR-MONTH-DAY-title.md`. You can get a brief introduction at [jekyll official website](http://jekyllrb.com/docs/structure/).
 
 ## 3. Configure
 

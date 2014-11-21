@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Home
+title: Halt in Air
 tagline:
 ---
 {% include JB/setup %}
