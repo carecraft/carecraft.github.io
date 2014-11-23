@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TemplateMethod
+title: Template Method
 category : design patterns
 tagline:
 tags : [design patterns, template method]
@@ -25,3 +25,9 @@ tags : [design patterns, template method]
 各个模式之间都有联系，模板方法也不例外。模板中的那些虚方法实际上使用了工厂方法设计模式，
 将父类的执行逻辑延迟到子类；
 有的时候算法骨架存在不止一种，则可以使用策略模式。
+
+## 参考
+
+1. [模板方法模式-lenotang的专栏](http://blog.csdn.net/lenotang/article/details/2911246)
+
+2. [模板方法设计模式-左岸的世界](http://blog.sina.com.cn/s/blog_7001e3e30100ncs6.html)
