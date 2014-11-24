@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A New Start
+title: 启程
 category : blog
 tagline: "What am I supposed to write in tagline..."
 tags : [intro, blog]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Template Method
+title: 模版方法模式
 category : design patterns
 tagline:
 tags : [design patterns, template method]

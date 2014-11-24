@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Simple Factory
+title: 简单工厂模式
 category : design patterns
 tagline:
 tags : [design patterns, simple factory]
