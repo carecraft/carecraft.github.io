@@ -12,8 +12,8 @@ title : Halt in Air
 tagline: They lived happily ever after.
 author :
   name : Xin Ma
-  email : maxinnx@163.com
-  github : malikey
+  email : carecraft@163.com
+  github : carecraft
   # twitter : username
   # feedburner : feedname
 
@@ -27,7 +27,7 @@ markdown: rdiscount
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://malikey.github.io
+production_url : http://carecraft.github.io
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
