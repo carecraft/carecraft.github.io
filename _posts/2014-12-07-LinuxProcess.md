@@ -46,10 +46,11 @@ tags : [linux, process, thread]
 内核采用循环双向链表task_list来存放所有进程描述符，并借助全局变量current来存放当前运行进
 程的task_struct的引用。
 
-关于进程描述符更详细的介绍，可以参考[tanglinux-Linux进程管理之task_struct结构体](http://blog.csdn.net/npy_lp/article/details/7292563)
+关于进程描述符更详细的介绍，可以参考[tanglinux-Linux进程管理之task_struct结构体](http://blog.csdn.net/npy_lp/article/details/7292563)。
 
 进程描述符中名为mm_struct的结构体是进程内存空间的描述信息（mm指向进程所拥有的内存描述符，
 而active_mm指向进程运行时所使用的内存描述符。对于普通进程而言，这两个指针变量的值相同。）
+
 ```c
 struct mm_struct *mm, *active_mm;
 ```
