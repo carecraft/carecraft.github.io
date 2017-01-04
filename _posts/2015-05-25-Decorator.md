@@ -11,9 +11,8 @@ tags : [design patterns, decorator]
 
 《大话设计模式》：
 
->[DP]
+>动态地给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活。[DP]
 
-，是型模式。
 
 ## UML类图
 
@@ -21,25 +20,35 @@ tags : [design patterns, decorator]
 
 该模式中包含的角色及其职责如下：
 
-*
+* (Component)
 
-  是抽象工厂模式的核心，包含所有的产品创建的抽象方法，与应用系统商业逻辑无关。
+  是定义一个对象接口，可以给这些对象动态的添加职责。
 
-* 具体工厂（ConcreteFactory）
+* (ConcreteComponent)
 
-  直接在客户端的调用下创建具有特定实现的产品对象，有选择合适的产品对象的逻辑，而这个逻辑
-  是与应用系统的商业逻辑紧密相关的。
+  是定义一个具体的对象，也可以给这个对象添加一些职责。
 
-* 抽象产品（AbstractProduct）
+* 装饰抽象类(Decorator)
 
-  抽象工厂模式所创建的对象的父类，或它们共同拥有的接口。有可能有多种不同的实现。
+  继承Component类，从外类来扩展Component类的功能。但对于Component来说，是无需知道Decorator
+  的存在的。
 
-* 具体产品（Concrete Product）
+  如果只有一个ConcreteComponent类而没有抽象的Component类，那么Decorator类可以是ConcreteComponent
+  的一个子类。
 
+* 具体装饰对象(ConcreteDecorator)
+
+  给Component添加职责。
+
+  如果只有一个ConcreteDecorator类，那么就没有必要建立一个单独的Decorator类，而可以把Decorator
+  和ConcreteDecorator的职责合并成一个类。
 
 ## 特点
 
+装饰模式是利用SetComponent来对对象进行包装的。这样每个装饰对象的实现就和如何使用这个对象分离
+开了，每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中。
 
+总结下来，装饰模式有效的把类的核心职责和装饰功能区分开了。而且可以去除相关类中重复的装饰逻辑。
 
 ## 参考
 
