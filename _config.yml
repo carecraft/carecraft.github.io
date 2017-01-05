@@ -9,7 +9,7 @@ highlighter: pygments
 # so be sure to set them if your theme uses them.
 #
 title : Halt in Air
-tagline: They lived happily ever after.
+tagline: Fish for three days and sun net for two!
 author :
   name : Xin Ma
   email : carecraft@163.com
@@ -27,7 +27,9 @@ markdown: rdiscount
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://carecraft.github.io
+production_url : http://libranx.com
+
+gems: ["jekyll-sitemap"]
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
