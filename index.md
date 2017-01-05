@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Halt in Air
-tagline: 
+tagline: Fish for three days and sun net for two!
 ---
 {% include JB/setup %}
 
