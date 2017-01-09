@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Build GitHub Pages with Jekyll-Bootstrap
-category : instrument
+category : language-instrument
 tagline:
 tags : [github-pages, jekyll, jekyll-bootstrap]
 ---
