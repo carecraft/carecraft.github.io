@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Commit message in AngularJS format
-category : language-instrument
+category : 语言与工具
 tagline:
 tags : [versioncontrol, commit message]
 ---

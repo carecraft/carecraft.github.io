@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Linux进程
-category : basictheory
+category : 计算机基础理论
 tagline:
 tags : [linux, process, thread]
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 读《哪有没时间这回事》
-category : blog
+category : 阅读与生活
 tagline:
 tags : 时间管理
 ---

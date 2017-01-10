@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 启程
-category : blog
+category : 阅读与生活
 tagline: "What am I supposed to write in tagline..."
 tags : [intro, blog]
 ---

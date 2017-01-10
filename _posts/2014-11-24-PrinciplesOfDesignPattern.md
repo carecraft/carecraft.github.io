@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 设计原则
-category : design patterns
+category : 设计模式
 tagline:
 tags : [design patterns, principle]
 ---

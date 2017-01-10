@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 模版方法模式
-category : design patterns
+category : 设计模式
 tagline:
 tags : [design patterns, template method]
 ---
