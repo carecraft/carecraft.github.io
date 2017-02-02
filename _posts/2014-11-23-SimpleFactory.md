@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 简单工厂模式
-category : 设计模式
-tagline:
+category : designpattern
+author: Max
 tags : [design patterns, simple factory]
 ---
-{% include JB/setup %}
+
 
 ## 定义
 

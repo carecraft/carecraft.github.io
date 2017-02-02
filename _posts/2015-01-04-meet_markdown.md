@@ -1,11 +1,11 @@
 ---
 layout: post
 title: markdown初识
-category : 语言与工具
-tagline:
+category : language-instrument
+author: Max
 tags : [md]
 ---
-{% include JB/setup %}
+
 
 ***
 # 基本语法
