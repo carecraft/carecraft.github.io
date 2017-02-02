@@ -1,15 +1,15 @@
 ---
 layout: post
 title: 工厂方法模式
-category : designpattern
-author: Max
+category : 设计模式
+tagline:
 tags : [design patterns, factory method]
 ---
-
+{% include JB/setup %}
 
 ## 定义
 
-《大话designpattern》：
+《大话设计模式》：
 
 >工厂方法模式，定义一个用于创建对象的接口，让子类实现实例化哪一个类。工厂方法使一个类的
 实例化延迟到子类。[DP]

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Multimedia Messaging Service Encapsulation Protocol
-category : protocol-model
-author: Max
+category : 协议与模型
+tagline:
 tags : [mmse, protocol]
 ---
-
+{% include JB/setup %}
 
 [OMA-TS-MMS_ENC-V1_3-20110913-A.pdf](http://technical.openmobilealliance.org/Technical/Release_Program/docs/MMS/V1_3-20110913-A/OMA-TS-MMS_ENC-V1_3-20110913-A.pdf)
 

@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 读《哪有没时间这回事》
-category : read-blog
-author: Max
+category : 阅读与生活
+tagline:
 tags : 时间管理
 ---
-
+{% include JB/setup %}
 
 <item>
   <title>读《哪有没时间这回事》</title>

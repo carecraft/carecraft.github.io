@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Session Initiation Protocol
-category : protocol-model
-author: Max
+category : 协议与模型
+tagline:
 tags : [sip, voip, protocol]
 ---
-
+{% include JB/setup %}
 
 [SIP RFC3261](http://datatracker.ietf.org/doc/rfc3261/)
 

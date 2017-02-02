@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  Session Description Protocol
-category : protocol-model
-author: Max
+category : 协议与模型
+tagline:
 tags : [sdp, protocol]
 ---
-
+{% include JB/setup %}
 
 [RFC 4566](http://datatracker.ietf.org/doc/rfc4566/)
 

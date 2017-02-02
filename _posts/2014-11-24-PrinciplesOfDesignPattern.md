@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 设计原则
-category : designpattern
-author: Max
+category : 设计模式
+tagline:
 tags : [design patterns, principle]
 ---
-
+{% include JB/setup %}
 
 ## 1. 单一职责原则（Single Responsibility Principle）
 
@@ -84,4 +84,4 @@ tags : [design patterns, principle]
 
 ## 参考
 
-1. [designpattern六大原则-mile的博客](http://www.cnblogs.com/lhws/archive/2012/03/10/2389189.html)
+1. [设计模式六大原则-mile的博客](http://www.cnblogs.com/lhws/archive/2012/03/10/2389189.html)

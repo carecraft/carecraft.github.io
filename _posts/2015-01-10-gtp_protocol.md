@@ -1,11 +1,11 @@
 ---
 layout: post
 title: GPRS Tunnelling Protocol
-category : protocol-model
-author: Max
+category : 协议与模型
+tagline:
 tags : [gtp, protocol]
 ---
-
+{% include JB/setup %}
 
 # **协议概述**
 
