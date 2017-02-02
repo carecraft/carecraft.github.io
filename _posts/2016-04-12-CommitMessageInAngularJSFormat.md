@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Commit message in AngularJS format
-category : 语言与工具
-tagline:
+category : language-instrument
+author: Max
 tags : [versioncontrol, commit message]
 ---
-{% include JB/setup %}
+
 
 <item>
   <title>Commit message in AngularJS format</title>

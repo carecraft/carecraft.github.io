@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Auto Makefiles
-category : 语言与工具
-tagline:
+category : language-instrument
+author: Max
 tags : [make, makefile]
 ---
-{% include JB/setup %}
+
 
 # 自动生成Makefile流程
 

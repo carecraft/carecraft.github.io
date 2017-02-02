@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Linux进程
-category : 计算机基础理论
-tagline:
+category : basictheory
+author: Max
 tags : [linux, process, thread]
 ---
-{% include JB/setup %}
+
 
 ## 概述
 

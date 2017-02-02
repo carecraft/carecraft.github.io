@@ -1,15 +1,15 @@
 ---
 layout: post
 title: 抽象工厂模式
-category : 设计模式
-tagline:
+category : designpattern
+author: Max
 tags : [design patterns, abstract factory]
 ---
-{% include JB/setup %}
+
 
 ## 定义
 
-《大话设计模式》：
+《大话designpattern》：
 
 >抽象工厂模式，提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。[DP]
 

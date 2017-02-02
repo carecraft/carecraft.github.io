@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Build GitHub Pages with Jekyll-Bootstrap
-category : 语言与工具
-tagline:
+category : language-instrument
+author: Max
 tags : [github-pages, jekyll, jekyll-bootstrap]
 ---
-{% include JB/setup %}
+
 This is a note on how I start this blog.
 
 

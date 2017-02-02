@@ -1,11 +1,11 @@
 ---
 layout: post
 title: IP Protocol
-category : 协议与模型
-tagline:
+category : protocol-model
+author: Max
 tags : [ip, protocol]
 ---
-{% include JB/setup %}
+
 
 # **RFC**
 
