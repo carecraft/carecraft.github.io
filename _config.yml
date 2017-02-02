@@ -6,7 +6,7 @@ email: carecraft@163.com
 description: "关于技术和生活 | 这里是 @Max马昕 的个人博客"
 keyword: "Max马昕"
 url: "http://libranx.com"              # your host, for absolute URL
-baseurl: "http://libranx.com/"         # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 
