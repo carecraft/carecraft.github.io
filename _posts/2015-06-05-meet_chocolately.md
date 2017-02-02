@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 利用Chocolatey快速在windows下搭建开发环境
-category : 语言与工具
-tagline:
+category : language-instrument
+author: Max
 tags : [choco]
 ---
-{% include JB/setup %}
+
 
 # 概述
 
