@@ -5,7 +5,8 @@ header-img: img/home-bg.jpg
 email: carecraft@163.com
 description: "关于技术和生活 | 这里是 @Max马昕 的个人博客"
 keyword: "Max马昕"
-url: "http://libranx.com"              # your host, for absolute URL
+url: "https://libranx.com"              # your host, for absolute URL
+enforce_ssl: libranx.com
 baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
 
 
@@ -90,7 +91,7 @@ service-worker: true
 # friends: [
 #    {
 #        title: "Hux Blog",
-#        href: "http://huangxuan.me"
+#        href: "https://huangxuan.me"
 #    },{
 #        title: "Foo",
 #        href: "#"
