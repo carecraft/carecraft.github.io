@@ -6,6 +6,7 @@ category : basictheory
 date:       2017-01-24
 author:     "Max"
 header-img: "img/post-bg-unix-linux.jpg"
+catalog:    true
 tags:
     - C++
     - memory

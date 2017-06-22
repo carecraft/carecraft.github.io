@@ -1,11 +1,12 @@
 ---
 layout:     post
 title:      "二维凸包检测"
-subtitle:   ""
+subtitle:   "Graham扫描法与Jarvis步进法"
 category : basictheory
 date:       2017-06-22
 author:     "Max"
 header-img: "img/post-bg-algorithms.jpg"
+catalog:    true
 tags:
     - algorithms
 ---

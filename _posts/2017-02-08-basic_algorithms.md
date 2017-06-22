@@ -6,6 +6,7 @@ category : basictheory
 date:       2017-02-02
 author:     "Max"
 header-img: "img/post-bg-algorithms.jpg"
+catalog:    true
 tags:
     - algorithms
 ---
