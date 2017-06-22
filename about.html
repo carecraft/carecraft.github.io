@@ -8,44 +8,19 @@ header-img: "img/about-bg.jpg"
 <!-- Language Selector -->
 <select class="sel-lang" onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
     <option value="0" selected> 中文 Chinese </option>
-    <option value="1"> 英语 English </option>
+    <option value="1"> 英文 English </option>
 </select>
 
 <!-- Chinese Version -->
 <div class="zh post-container">
-    <blockquote>
-        吾尝终日而思矣，不如须臾之所学也；吾尝跂而望矣，不如登高之博见也。
-        <p style="text-align:right;"> ———— 《荀子·劝学》</p>
-    </blockquote>
-
-    <h2>关于博主</h2>
-    <p>这个人很懒，想的比做的多。</p>
-    <br>
-    <h2>关于博客</h2>
-       <p>
-       用<a href="https://pages.github.com/">GitHub Pages</a>和<a href="http://jekyllcn.com/">Jekyll</a>搭建，主题fork自<a href="https://github.com/huxpro/huxpro.github.io/">Hux Blog</a>，感谢<a href="https://huangxuan.me/">Hux</a>。
-       </p>
-
+    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
+    {{ about_zh | markdownify }}
 </div>
 
 <!-- English Version -->
 <div class="en post-container">
-    <blockquote>
-        You can create art and beauty on a computer.
-    </blockquote>
-
-    <p>
-        Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. As with all matters of the heart, you’ll know when you find it.
-    </p>
-
-    <p>
-    If you want to live your life in a creative way, as an artist, you have to not look back too much. You have to be willing to take whatever you’ve done and whoever you were and throw them away.
-    </p>
-
-    <p style="text-align:right;">
-    -- Steve Jobs
-    </p>
-
+    {% capture about_en %}{% include about/en.md %}{% endcapture %}
+    {{ about_en | markdownify }}
 </div>
 
 <!-- Handle Language Change -->
@@ -95,7 +70,13 @@ header-img: "img/about-bg.jpg"
 <div class="comment">
     <!-- This id is used for indexing my loss comments forcedly -->
     <div class="ds-thread"
-    data-thread-key="{{page.path}}"
+    {% if site.duoshuo_username == "huxblog" %}
+        data-thread-id="1187623191091085319"
+    {% else %}
+    <!-- U can just use this key generated to index comments at page about -->
+        data-thread-key="{{site.duoshuo_username}}/about"
+    {% endif %}
+
     data-title="{{page.title}}"
     data-url="{{site.url}}/about/"></div>
 </div>
