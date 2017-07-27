@@ -3,7 +3,7 @@ layout:     post
 title:      "Manacher’s Algorithm"
 subtitle:   "Linear Time Longest Palindromic Substring"
 category :  basictheory
-date:       2017-07-14
+date:       2017-07-27
 author:     "Max"
 header-img: "img/post-bg-algorithms.jpg"
 catalog:    true
@@ -16,7 +16,7 @@ tags:
 
 回文子串也是字符串相关的常见题目。本文介绍一种时间复杂度为 O(n) 的最长回文子串算法。
 
-## 2.
+## 2. 蛮力算法
 
 先介绍一种简单思路。 
 
@@ -26,35 +26,35 @@ tags:
 
 ```golang
 func longestPalSubstr(str string) []string {
-	start, maxLength, length := 0, 0, len(str)
-	result := make([]string, 0)
-	if length == 0 {
-		return result
-	}
-	low, high := 0, 0
+    start, maxLength, length := 0, 0, len(str)
+    result := make([]string, 0)
+    if length == 0 {
+        return result
+    }
+    low, high := 0, 0
 
-	for center := 0; center < 2*length-1; center++ {
-		low = center / 2
-		high = low + center%2
-		for low >= 0 && high < length && str[low] == str[high] {
-			low--
-			high++
-		}
-		if high-low-1 > maxLength {
-			start = low + 1
-			maxLength = high - low - 1
-			result = make([]string, 1)
-			result[0] = str[start : start+maxLength]
-		} else if high-low-1 == maxLength {
-			start = low + 1
-			result = append(result, str[start:start+maxLength])
-		}
-	}
-	return result
+    for center := 0; center < 2*length-1; center++ {
+        low = center / 2
+        high = low + center%2
+        for low >= 0 && high < length && str[low] == str[high] {
+            low--
+            high++
+        }
+        if high-low-1 > maxLength {
+            start = low + 1
+            maxLength = high - low - 1
+            result = make([]string, 1)
+            result[0] = str[start : start+maxLength]
+        } else if high-low-1 == maxLength {
+            start = low + 1
+            result = append(result, str[start:start+maxLength])
+        }
+    }
+    return result
 }
 ```
 
-## 3. 
+## 3. 最长回文子串算法
 
 考虑字符串“abababa”，它以中点 ‘b’ 对称，本身即是回文字符串。如果按照上述算法，对每个 2*n+1 个位置进行判断无疑会造成许多浪费。当在某一位置 P 计算完成后，尤其当出现一个长度为 L 的回文子串的时候，P+1 的位置已经不需要匹配其左右的每一个字符了。Manacher’s algorithm 正是利用这一特性降低复杂度。
 
@@ -69,8 +69,8 @@ func longestPalSubstr(str string) []string {
 * **currentLeftPosition** ： 是逐字符考查 centerPosition 的最长回文子串过程中的临时左边界（字符）位置，逐字符减小
 
     有如下关系及变形：
-	+ centerPosition – currentLeftPosition = currentRightPosition – centerPosition
-	+ currentLeftPosition = 2* centerPosition – currentRightPosition
+    + centerPosition – currentLeftPosition = currentRightPosition – centerPosition
+    + currentLeftPosition = 2* centerPosition – currentRightPosition
 * **center palindrome** ： 以 centerPosition 位置为基点的最长回文子串
 * **i-left palindrome** ： 以 centerPosition-i 位置的为基点的最长回文子串
 * **i-right palindrome** ： 以 centerPosition+i 位置的为基点的最长回文子串
@@ -113,8 +113,71 @@ LPS Length L | 0 | 1 | 0 | 3 | 0 | 1 | 0 | 7 | 0 | 1 | 0 | 9 | 0 | 1 | 0 | 5 | 0
 
 简单实现如下：
 ```golang
+func longestPalSubstr(str string) []string {
+    if len(str) == 0 {
+        return make([]string, 0)
+    }
+    result := make([]string, 1)
+    result[0] = str[0:1]
+    n := 2*len(str) + 1
+    LPS := make([]int, n)
+    LPS[0], LPS[1] = 0, 1
 
+    centerPosition, centerRightPosition := 1, 2
+    maxLPSLength := 1
+    for i := 2; i < n; i++ { //currentRightPosition
+        currentLeftPosition := 2*centerPosition - i
+        expand := false
+        if d := centerRightPosition - i; d > 0 {
+            if LPS[currentLeftPosition] < d {
+                LPS[i] = LPS[currentLeftPosition] //Case 1
+            } else if LPS[currentLeftPosition] == d && i == n-1 {
+                LPS[i] = LPS[currentLeftPosition] //Case 2
+            } else if LPS[currentLeftPosition] == d && i < n-1 {
+                LPS[i] = LPS[currentLeftPosition] //Case 3
+                expand = true
+            } else if LPS[currentLeftPosition] > d {
+                LPS[i] = d //Case 4
+                expand = true
+            }
+        } else {
+            LPS[i] = 0
+            expand = true
+        }
 
+        if expand {
+            for i+LPS[i] < n && i-LPS[i] > 0 {
+                if (i+LPS[i]+1)%2 == 0 || i+LPS[i] < n-2 && str[(i+LPS[i]+1)/2] == str[(i-LPS[i]-1)/2] {
+                    LPS[i]++
+                } else {
+                    break
+                }
+            }
+        }
+
+        if LPS[i] > maxLPSLength {
+            maxLPSLength = LPS[i]
+            result = make([]string, 1)
+            result[0] = str[(i-LPS[i]+1)/2 : (i+LPS[i]+1)/2]
+        } else if LPS[i] == maxLPSLength {
+            result = append(result, str[(i-LPS[i]+1)/2:(i+LPS[i]+1)/2])
+        }
+
+        if i+LPS[i] > centerRightPosition {
+            centerPosition = i
+            centerRightPosition = i + LPS[i]
+        }
+    }
+    return result
+}
+```
+
+内部循环中，LPS 分情景讨论的部分可以在理解后进行简化：
+```golang
+    LPS[i] = 0
+    if d > 0 {
+        LPS[i] = min(LPS[currentLeftPosition], d)
+    }
 ```
 
 ## 4. 参考
