@@ -67,7 +67,7 @@ Figure 1 shows a typical example of a SIP message exchange between two users, Al
          Figure 1: SIP session setup example with SIP trapezoid
 ```
 
-### F1 INVITE Alice -> atlanta.com proxy
+#### F1 INVITE Alice -> atlanta.com proxy
 ```
 INVITE sip:bob@biloxi.com SIP/2.0
 Via: SIP/2.0/UDP pc33.atlanta.com;branch=z9hG4bKnashds8
@@ -83,7 +83,7 @@ Content-Length: 142
 (Alice's SDP not shown)
 ```
 
-### F2 100 Trying atlanta.com proxy -> Alice
+#### F2 100 Trying atlanta.com proxy -> Alice
 ```
 SIP/2.0 100 Trying
 Via: SIP/2.0/UDP pc33.atlanta.com;branch=z9hG4bKnashds8;received=192.0.2.1
@@ -94,7 +94,7 @@ CSeq: 314159 INVITE
 Content-Length: 0
 ```
 
-### F3 INVITE atlanta.com proxy -> biloxi.com proxy
+#### F3 INVITE atlanta.com proxy -> biloxi.com proxy
 ```
 INVITE sip:bob@biloxi.com SIP/2.0
 Via: SIP/2.0/UDP bigbox3.site3.atlanta.com;branch=z9hG4bK77ef4c2312983.1
@@ -111,7 +111,7 @@ Content-Length: 142
 (Alice's SDP not shown)
 ```
 
-### F4 100 Trying biloxi.com proxy -> atlanta.com proxy
+#### F4 100 Trying biloxi.com proxy -> atlanta.com proxy
 ```
 SIP/2.0 100 Trying
 Via: SIP/2.0/UDP bigbox3.site3.atlanta.com;branch=z9hG4bK77ef4c2312983.1;received=192.0.2.2
@@ -123,7 +123,7 @@ CSeq: 314159 INVITE
 Content-Length: 0
 ```
 
-### F5 INVITE biloxi.com proxy -> Bob
+#### F5 INVITE biloxi.com proxy -> Bob
 ```
 INVITE sip:bob@192.0.2.4 SIP/2.0
 Via: SIP/2.0/UDP server10.biloxi.com;branch=z9hG4bK4b43c2ff8.1
@@ -141,7 +141,7 @@ Content-Length: 142
 (Alice's SDP not shown)
 ```
 
-### F6 180 Ringing Bob -> biloxi.com proxy
+#### F6 180 Ringing Bob -> biloxi.com proxy
 ```
 SIP/2.0 180 Ringing
 Via: SIP/2.0/UDP server10.biloxi.com;branch=z9hG4bK4b43c2ff8.1;received=192.0.2.3
@@ -155,7 +155,7 @@ CSeq: 314159 INVITE
 Content-Length: 0
 ```
 
-### F7 180 Ringing biloxi.com proxy -> atlanta.com proxy
+#### F7 180 Ringing biloxi.com proxy -> atlanta.com proxy
 ```
 SIP/2.0 180 Ringing
 Via: SIP/2.0/UDP bigbox3.site3.atlanta.com;branch=z9hG4bK77ef4c2312983.1;received=192.0.2.2
@@ -168,7 +168,7 @@ CSeq: 314159 INVITE
 Content-Length: 0
 ```
 
-### F8 180 Ringing atlanta.com proxy -> Alice
+#### F8 180 Ringing atlanta.com proxy -> Alice
 ```
 SIP/2.0 180 Ringing
 Via: SIP/2.0/UDP pc33.atlanta.com;branch=z9hG4bKnashds8;received=192.0.2.1
@@ -180,7 +180,7 @@ CSeq: 314159 INVITE
 Content-Length: 0
 ```
 
-### F9 200 OK Bob -> biloxi.com proxy
+#### F9 200 OK Bob -> biloxi.com proxy
 ```
 SIP/2.0 200 OK
 Via: SIP/2.0/UDP server10.biloxi.com;branch=z9hG4bK4b43c2ff8.1;received=192.0.2.3
@@ -197,7 +197,7 @@ Content-Length: 131
 (Bob's SDP not shown)
 ```
 
-### F10 200 OK biloxi.com proxy -> atlanta.com proxy
+#### F10 200 OK biloxi.com proxy -> atlanta.com proxy
 ```
 SIP/2.0 200 OK
 Via: SIP/2.0/UDP bigbox3.site3.atlanta.com;branch=z9hG4bK77ef4c2312983.1;received=192.0.2.2
@@ -213,7 +213,7 @@ Content-Length: 131
 (Bob's SDP not shown)
 ```
 
-### F11 200 OK atlanta.com proxy -> Alice
+#### F11 200 OK atlanta.com proxy -> Alice
 ```
 SIP/2.0 200 OK
 Via: SIP/2.0/UDP pc33.atlanta.com;branch=z9hG4bKnashds8;received=192.0.2.1
@@ -228,7 +228,7 @@ Content-Length: 131
 (Bob's SDP not shown)
 ```
 
-### F12 ACK Alice -> Bob
+#### F12 ACK Alice -> Bob
 ```
 ACK sip:bob@192.0.2.4 SIP/2.0
 Via: SIP/2.0/UDP pc33.atlanta.com;branch=z9hG4bKnashds9
@@ -240,13 +240,13 @@ CSeq: 314159 ACK
 Content-Length: 0
 ```
 
-### Note
+#### Note
 
 The media session between Alice and Bob is now established.
 
 Bob hangs up first.  Note that Bob's SIP phone maintains its own CSeq numbering space, which, in this example, begins with 231.  Since Bob is making the request, the To and From URIs and tags have been swapped.
 
-### F13 BYE Bob -> Alice
+#### F13 BYE Bob -> Alice
 ```
 BYE sip:alice@pc33.atlanta.com SIP/2.0
 Via: SIP/2.0/UDP 192.0.2.4;branch=z9hG4bKnashds10
@@ -258,7 +258,7 @@ CSeq: 231 BYE
 Content-Length: 0
 ```
 
-### F14 200 OK Alice -> Bob
+#### F14 200 OK Alice -> Bob
 ```
 SIP/2.0 200 OK
 Via: SIP/2.0/UDP 192.0.2.4;branch=z9hG4bKnashds10
@@ -288,7 +288,7 @@ Bob registers on start-up.  The message flow is shown in Figure 2. Note that the
                   Figure 2: SIP Registration Example
 ```
 
-### F1 REGISTER Bob -> Registrar
+#### F1 REGISTER Bob -> Registrar
 ```
        REGISTER sip:registrar.biloxi.com SIP/2.0
        Via: SIP/2.0/UDP bobspc.biloxi.com:5060;branch=z9hG4bKnashds7
@@ -303,7 +303,7 @@ Bob registers on start-up.  The message flow is shown in Figure 2. Note that the
 ```
 The registration expires after two hours.  The registrar responds with a 200 OK:
 
-### F2 200 OK Registrar -> Bob
+#### F2 200 OK Registrar -> Bob
 ```
        SIP/2.0 200 OK
        Via: SIP/2.0/UDP bobspc.biloxi.com:5060;branch=z9hG4bKnashds7;received=192.0.2.4
@@ -318,7 +318,7 @@ The registration expires after two hours.  The registrar responds with a 200 OK:
 
 ***
 
-#3. Structure of the Protocol
+# 3. Structure of the Protocol
 
 SIP is structured as a layered protocol, which means that its behavior is described in terms of a set of fairly independent processing stages with only a loose coupling between each stage.  
 
@@ -332,7 +332,7 @@ The layer above the transaction layer is called the transaction user (TU).  Each
 
 ***
 
-#4. SIP Messages
+# 4. SIP Messages
 
 SIP messages consist of a start-line, one or more header fields, an empty line indicating the end of the header fields, and an optional message-body.
 ```
@@ -344,7 +344,7 @@ SIP messages consist of a start-line, one or more header fields, an empty line i
 ```
    The start-line, each message-header line, and the empty line MUST be terminated by a carriage-return line-feed sequence (CRLF).  Note that the empty line MUST be present even if the message-body is not.
 
-##4.1 Requests
+## 4.1 Requests
 
 SIP requests are distinguished by having a Request-Line for a start-line.  A Request-Line contains a method name, a Request-URI, and the protocol version separated by a single space (SP) character.
 
@@ -356,7 +356,22 @@ Request-Line  =  Method SP Request-URI SP SIP-Version CRLF
 
 1. Method:
 
-   This specification defines six methods: REGISTER for registering contact information, INVITE, ACK, and CANCEL for setting up sessions, BYE for terminating sessions, and OPTIONS for querying servers about their capabilities.  SIP extensions, documented in standards track RFCs, may define additional methods.
+   [RFC3261](http://datatracker.ietf.org/doc/rfc3261/) defines six methods: **REGISTER** for registering contact information, **INVITE**, **ACK**, and **CANCEL** for setting up sessions, **BYE** for terminating sessions, and **OPTIONS** for querying servers about their capabilities.  SIP extensions, documented in standards track RFCs, may define additional methods.
+
+   Once a dialog is established, either early or confirmed, the caller and the callee can generate an
+   **UPDATE** method that contains an SDP offer for the purposes of updating the session. This method is discribed in [RFC3311](https://tools.ietf.org/html/rfc3311).
+
+   [RFC3428](https://tools.ietf.org/html/rfc3428) describes the **MESSAGE** method for sending
+   instant messages using a metaphor similar to that of a two-way pager or SMS enabled handset, supporting all the requirements in [RFC2779](https://tools.ietf.org/html/rfc2779) relevant to its scope of applicability for presence and instant messaging protocols.
+
+   The **SUBSCRIBE** method, defined in [RFC6665](https://tools.ietf.org/html/rfc6665), is used to request current state and state updates from a remote node. Then, **NOTIFY** requests are sent to inform subscribers of changes in state to which the subscriber has a subscription.
+
+   The **REFER** method, defined in [RFC3515](https://tools.ietf.org/html/rfc3515), could also create a subscription, indicating that the recipient (identified by the Request-URI) should contact a third party using the contact information provided in the request.
+
+   [RFC6086](https://tools.ietf.org/html/rfc6086) defines a method, **INFO**, to carry application level information between endpoints, using the SIP dialog signaling path. Note that the INFO method is not used to update characteristics of a SIP dialog or session, but to allow the applications that use the SIP
+   session to exchange information (which might update the state of those applications).
+
+
 
 2. Request-URI:
 
@@ -366,7 +381,7 @@ Request-Line  =  Method SP Request-URI SP SIP-Version CRLF
 
    Both request and response messages include the version of SIP in use, and follow HTTP (with HTTP replaced by SIP, and HTTP/1.1 replaced by SIP/2.0) regarding version ordering, compliance requirements, and upgrading of version numbers.  To be compliant with this specification, applications sending SIP messages MUST include a SIP-Version of "SIP/2.0".  The SIP-Version string is case-insensitive, but implementations MUST send upper-case.
 
-##4.2 Responses
+## 4.2 Responses
 
 SIP responses are distinguished from requests by having a Status-Line as their start-line.  A Status-Line consists of the protocol version followed by a numeric Status-Code and its associated textual phrase, with each element separated by a single SP character.
 
@@ -385,7 +400,7 @@ Specifically, any SIP header whose grammar is of the form
 ```
 allows for combining header fields of the same name into a comma-separated list.  The Contact header field allows a comma-separated list unless the header field value is "*".
 
-##5.1 Header Field Format
+## 5.1 Header Field Format
 ```
          field-name: field-value
 ```
@@ -394,7 +409,7 @@ The format of a header field-value is defined per header-name.  It will always b
          field-name: field-value *(;parameter-name=parameter-value)
 ```
 
-##5.2 Summary of header fields
+## 5.2 Summary of header fields
 
 The "where" column describes the request and response types in which the header field can be used.  Values in this column are:
 
