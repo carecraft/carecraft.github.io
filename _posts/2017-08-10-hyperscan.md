@@ -278,6 +278,7 @@ hsbench 接受的模式串也需要满足一定的格式。事实上，所有的
   * \<integer id\> 是用于 Hyperscan 匹配成功时标识模式串的，需要保证唯一性。
   * \<regex\> 遵循 PCRE 语法。
   * \<flags\> 是可映射为 Hyperscan 编译标记的单个字符，如下：
+  
       Character	| API Flag	| Description
       --- | --- | ---
       i	| HS_FLAG_CASELESS	| 忽略大小写匹配
@@ -327,7 +328,7 @@ hsbench 还可以接收 “-T” 参数使 Hyperscan 在指定的一个或多个
 
 
 
-## 资料来源
+## 7. 资料来源
 
 1. [官方开发手册](http://01org.github.io/hyperscan/dev-reference/intro.html)
 2. [PERFORMANCE ANALYSIS OF HYPERSCAN WITH HSBENCH](https://01.org/zh/node/7367)
