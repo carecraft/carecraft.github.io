@@ -115,7 +115,8 @@ func HeapSort(nums []int) {
         HeapAdjust(nums, 0, i-1)
     }
 }
-
+```
+```go
 func HeapAdjust(nums []int, s int, e int) {
     temp := nums[s]
     for j := 2*s+1; j <= e; j = 2*j+1 {
@@ -147,9 +148,107 @@ func MergeSort(nums []int) {
         k *= 2
     }
 }
-
+```
+```go
 /* 将 SR[] 中相邻长度为 s 的子序列两两归并到 TR[] */
 func MergePass(SR []int, TR []int, s int, n int) {
-    
+    i := 0
+    for i < n-2*s+1 {
+        Merge(SR, TR, i, i+s-1, i+2*s-1)
+        i += 2*s
+    }
+    if i < n-s+1 {
+        Merge(SR, TR, i, i+s-1, n)
+    } else {
+        for j := i; j < n; j++ {
+            TR[j] = SR[j]
+        }
+    }
 }
 ```
+```go
+/* 将有序的 SR[i..m] 和 SR[m+1..n] 归并为有序的 TR[i..n] */
+func Merge(SR []int, TR []int, i int, m int, n int) {
+    j, k := m+1, i
+    for i<=m && j<=n {
+        if SR[i] >= SR[j] {
+            TR[k] = SR[i]
+            i++
+        } else {
+            TR[k] = SR[j]
+            j++
+        }
+        k++
+    }
+    if i <= m {
+        for l := 0; l <= m-i; l++ {
+            TR[k+l] = SR[i+l]
+        }
+    }
+    if j <= n {
+        for l := 0; l <= n-j; l++ {
+            TR[k+l] = SR[j+l]
+        }
+    }
+}
+```
+
+# 7. 快速排序（Quick Sort）
+
+快速排序的基本思想是通过一趟排序将待排记录分割成独立的两部分，其中一部分的记录的关键字均比另一部分记录的关键字小，则可分别对这两部分记录进行排序，以达到整个序列有序的目的。
+
+```go
+func QuickSort(nums []int) {
+    QSort(nums, 0, len(nums)-1)
+}
+
+func QSort(nums []int, low int, high int) {
+    /* 当 high-low（7或50） 小于某个常数时，使用直接插入排序无疑具有最高效率 */
+    for low < high {
+        pivot := Partition(nums, low, high)
+        QSort(nums, low, pivot-1)
+        low = pivot + 1  // 尾递归，缩短堆栈深度，提高整体性能
+    }
+}
+
+func Partition(nums []int, low int, high int) {
+    /* 使用三数取中法选定枢轴 */
+    m := low + (high - low)/2
+    if nums[low] < nums[high] {
+        nums[low], nums[high] = nums[high], nums[low]
+    }
+    if nums[m] < nums[high] {
+        nums[m], nums[high] = nums[high], nums[m]
+    }
+    if nums[m] < nums[low] {
+        nums[low], nums[m] = nums[m], nums[low]
+    }
+    pivotkey := nums[low]
+
+    temp := pivotkey
+    for low < high {
+        for low < high && nums[high] <= pivotkey {
+            high--
+        }
+        nums[low] = nums[high]
+        for low < high && nums[low] >= pivotkey {
+            low++
+        }
+        nums[high] = nums[low]
+    }
+    nums[low] = temp
+    return low
+}
+```
+
+# 8. 小结
+
+排序方法 | 平均情况 | 最好情况 | 最坏情况 | 辅助空间 | 稳定性
+--- | --- | --- | --- | --- | ---
+冒泡排序 | O(n^2) | O(n) | O(n^2) | O(1) | 稳定
+简单选择排序 | O(n^2) | O(n^2) | O(n^2) | O(1) | 稳定
+直接插入排序 | O(n^2) | O(n) | O(n^2) | O(1) | 稳定
+希尔排序 | O(nlogn) ~ O(n^2) | O(n^1.3) | O(n^2) | O(1) | 不稳定
+堆排序 | O(nlogn) | O(nlogn) | O(nlogn) | O(1) | 不稳定
+归并排序 | O(nlogn) | O(nlogn) | O(nlogn) | O(n) | 稳定
+快速排序 | O(nlogn) | O(nlogn) | O(n^2) | O(logn) ~ O(n) | 不稳定
