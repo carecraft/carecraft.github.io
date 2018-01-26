@@ -64,10 +64,11 @@ func InsertSort(nums []int) {
         if nums[i] > nums[i-1] {
             temp := nums[i]
             j := i-1
-            for nums[j] < temp {
+            for j >= 0 && nums[j] < temp {
                 nums[j+1] = nums[j]
-                j--
+				j--
             }
+			j++
             nums[j] = temp
         }
     }
@@ -150,15 +151,15 @@ func MergeSort(nums []int) {
 }
 ```
 ```go
-/* 将 SR[] 中相邻长度为 s 的子序列两两归并到 TR[] */
+/* 将总长度为 n 的 SR[] 中相邻长度为 s 的子序列两两归并到 TR[] */
 func MergePass(SR []int, TR []int, s int, n int) {
     i := 0
-    for i < n-2*s+1 {
+    for i < n-2*s {
         Merge(SR, TR, i, i+s-1, i+2*s-1)
         i += 2*s
     }
-    if i < n-s+1 {
-        Merge(SR, TR, i, i+s-1, n)
+    if i < n-s {
+        Merge(SR, TR, i, i+s-1, n-1)
     } else {
         for j := i; j < n; j++ {
             TR[j] = SR[j]
@@ -201,7 +202,8 @@ func Merge(SR []int, TR []int, i int, m int, n int) {
 func QuickSort(nums []int) {
     QSort(nums, 0, len(nums)-1)
 }
-
+```
+```go
 func QSort(nums []int, low int, high int) {
     /* 当 high-low（7或50） 小于某个常数时，使用直接插入排序无疑具有最高效率 */
     for low < high {
@@ -210,8 +212,9 @@ func QSort(nums []int, low int, high int) {
         low = pivot + 1  // 尾递归，缩短堆栈深度，提高整体性能
     }
 }
-
-func Partition(nums []int, low int, high int) {
+```
+```go
+func Partition(nums []int, low int, high int) int {
     /* 使用三数取中法选定枢轴 */
     m := low + (high - low)/2
     if nums[low] < nums[high] {
