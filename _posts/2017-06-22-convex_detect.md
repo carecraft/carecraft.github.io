@@ -69,7 +69,7 @@ result>0，$P_3$ 在 $P_1P_2$ 的左侧；result<0，$P_3$ 在 $P_1P_2$ 的右�
 
 https://leetcode.com/problems/erect-the-fence/#/description
 
-```golang
+```
 /**
  * Definition for a point.
  * type Point struct {
@@ -177,7 +177,7 @@ func outerTrees(points []Point) []Point {
 
 同一题按Jarvis步进法编码如下：
 
-```golang
+```
 func findBottom(points []Point) Point {
     for i := len(points)-1; i > 0; i-- {
         if points[i].X < points[i-1].X || (points[i].X == points[i-1].X && points[i].Y < points[i-1].Y) {

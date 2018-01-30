@@ -24,7 +24,7 @@ tags:
 
 该算法的时间复杂度为 O(n^2)，空间复杂度为 O(1)。简单实现如下：
 
-```golang
+```
 func longestPalSubstr(str string) []string {
     start, maxLength, length := 0, 0, len(str)
     result := make([]string, 0)
@@ -112,7 +112,7 @@ LPS Length L | 0 | 1 | 0 | 3 | 0 | 1 | 0 | 7 | 0 | 1 | 0 | 9 | 0 | 1 | 0 | 5 | 0
 以上四种情景讨论完，就只剩一个问题了——如何决定及变更 centerPosition 呢？在 Case 3/4 情景中，**若 i-right palindrome 扩展越过了 centerRightPosition 位置，就将 currentRightPosition 作为新的 centerPosition**。
 
 简单实现如下：
-```golang
+```
 func longestPalSubstr(str string) []string {
     if len(str) == 0 {
         return make([]string, 0)
@@ -173,7 +173,7 @@ func longestPalSubstr(str string) []string {
 ```
 
 内部循环中，LPS 分情景讨论的部分可以在理解后进行简化：
-```golang
+```
     LPS[i] = 0
     if d > 0 {
         LPS[i] = min(LPS[currentLeftPosition], d)

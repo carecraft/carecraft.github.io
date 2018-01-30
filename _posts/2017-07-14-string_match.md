@@ -20,7 +20,7 @@ tags:
 
 最简单直接的想法，就是对 n+m-1 个可能的每一个有效位移 s 检查是否满足条件 P[1..m]=T[s+1..s+m]。
 
-```golang
+```
 func NaiveStringMatch(T,P string) []int {
     result := make([]int, 0)
     n, m := len(T), len(P)
@@ -74,7 +74,7 @@ P[i] | a | b | a | a | b | c
 
 综上，即为 KMP 算法的原理。
 
-```golang
+```
 func GetPrefix(P string) []int {
 	m := len(P)
 	r := make([]int, m)
@@ -167,7 +167,7 @@ HERE IS A SIMPLE EXAMPLE
 ```
 从尾部开始逐位比较，发现全部匹配。如果还要继续查找，则根据**好后缀规则**，后移 `6 - 0 = 6` 位，即头部的 ‘E’ 移到尾部的 ‘E’ 的位置。
 
-```golang
+```
 func preBmBc(P string) []int {
 	r := make([]int, 256)
 	m := len(P)
@@ -265,7 +265,7 @@ HERE IS A SIMPLE EXAMPLE            HERE IS A SIMPLE EXAMPLE
          EXAMPLE                                   EXAMPLE
 ```
 
-```golang
+```
 func HorspoolMatch(T, P string) []int {
 	n, m := len(T), len(P)
 	bmBc := preBmBc(P)
@@ -288,7 +288,7 @@ func HorspoolMatch(T, P string) []int {
 
 与 Horspool 算法类似， Sunday 算法也是对 BM 算法坏字符规则的改进。比 Horspool 算法关注当前匹配成功的最后一个字符更进一步，Sunday 算法直接观察当前匹配成功的最后一个字符的下一个字符。
 
-```golang
+```
 func preSundayBc(P string) []int {
 	r := make([]int, 256)
 	m := len(P)
@@ -324,7 +324,7 @@ func SundayMatch(T, P string) []int {
 
 是 python 中使用的字符串匹配算法，又被称为 BMHBNFS 算法，可以视作 BM、Horspool、Sunday 算法的综合：
 
-```golang
+```
 func FSMatch(T, P string) []int {
 	n, m := len(T), len(P)
 	bmBc := preBmBc(P)

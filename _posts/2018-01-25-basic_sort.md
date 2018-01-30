@@ -18,7 +18,8 @@ tags:
 冒泡排序是一种交换排序，它的基本思想是两两比较相邻记录的关键字，如果反序就交换，知道没有反序的记录为止。
 
 给定一个乱序数组 nums[n]，简单实现非递增如下：
-```go
+
+```
 func BubbleSort(nums []int) {
     length := len(nums)
     swapped := true
@@ -36,7 +37,8 @@ func BubbleSort(nums []int) {
 # 2. 简单选择排序（Simple Selection Sort）
 
 简单选择排序就是通过 n-i 次关键字的比较， 从 n-i+1 个记录中选出关键字最小的记录，并和第 i（1<=i<=n）个记录交换。
-```go
+
+```
 func SelectSort(nums []int) {
     length := len(nums)
     for i := 0; i < length; i++ {
@@ -57,7 +59,7 @@ func SelectSort(nums []int) {
 
 直接插入排序的基本操作是将一个记录插入到已经排好序的有序表中，从而得到一个新的、记录数增 1 的有序表。
 
-```go
+```
 func InsertSort(nums []int) {
     length := len(nums)
     for i := 1; i < length; i++ {
@@ -79,7 +81,7 @@ func InsertSort(nums []int) {
 
 从时间上来讲，希尔排序是突破 O(n^2) 复杂度的第一批算法之一，之后才相继出现更加高效的算法；从原理上来讲，希尔排序是将相距某个增量的记录组成子序列分别进行直接插入排序的过程，使整个记录序列基本有序。当增量为 1 的直接插入排序后，整个序列有序。
 
-```go
+```
 func ShellSort(nums []int) {
     length := len(nums)
     increment := length
@@ -99,13 +101,14 @@ func ShellSort(nums []int) {
     }
 }
 ```
+
 # 5. 堆排序（Heap Sort）
 
 堆是具有下列性质的完全二叉树：每个节点的值都大于或等于其左右孩子节点的值，称为大顶堆；或者每个节点的值都小于或等于其左右孩子节点的值，称为小顶堆。
 
 堆排序就是利用堆进行排序的方法——将带排序的序列构造成一个小顶堆，此时整个序列的最小值就是堆顶的根节点，将其与堆数组的末尾元素交换，将剩余的 n-1 个序列重新构造成堆，然后反复执行。
 
-```go
+```
 func HeapSort(nums []int) {
     length := len(nums)
     for i := length/2-1; i >= 0; i-- {
@@ -117,7 +120,8 @@ func HeapSort(nums []int) {
     }
 }
 ```
-```go
+
+```
 func HeapAdjust(nums []int, s int, e int) {
     temp := nums[s]
     for j := 2*s+1; j <= e; j = 2*j+1 {
@@ -138,7 +142,7 @@ func HeapAdjust(nums []int, s int, e int) {
 
 假设初始序列含有 n 个记录，则可以看成是 n 个有序的子序列，每个子序列的长度为 1， 然后两两归并，得到 ⌈n/2⌉ 个长度为 2 或 1 的有序子序列，再两两归并，如此重复，直到得到一个长度为 n 的有序序列为止。这种排序方法称为 2 路归并排序。
 
-```go
+```
 func MergeSort(nums []int) {
     length := len(nums)
     TR := make([]int, length)
@@ -150,7 +154,8 @@ func MergeSort(nums []int) {
     }
 }
 ```
-```go
+
+```
 /* 将总长度为 n 的 SR[] 中相邻长度为 s 的子序列两两归并到 TR[] */
 func MergePass(SR []int, TR []int, s int, n int) {
     i := 0
@@ -167,7 +172,8 @@ func MergePass(SR []int, TR []int, s int, n int) {
     }
 }
 ```
-```go
+
+```
 /* 将有序的 SR[i..m] 和 SR[m+1..n] 归并为有序的 TR[i..n] */
 func Merge(SR []int, TR []int, i int, m int, n int) {
     j, k := m+1, i
@@ -198,12 +204,13 @@ func Merge(SR []int, TR []int, i int, m int, n int) {
 
 快速排序的基本思想是通过一趟排序将待排记录分割成独立的两部分，其中一部分的记录的关键字均比另一部分记录的关键字小，则可分别对这两部分记录进行排序，以达到整个序列有序的目的。
 
-```go
+```
 func QuickSort(nums []int) {
     QSort(nums, 0, len(nums)-1)
 }
 ```
-```go
+
+```
 func QSort(nums []int, low int, high int) {
     /* 当 high-low（7或50） 小于某个常数时，使用直接插入排序无疑具有最高效率 */
     for low < high {
@@ -213,7 +220,8 @@ func QSort(nums []int, low int, high int) {
     }
 }
 ```
-```go
+
+```
 func Partition(nums []int, low int, high int) int {
     /* 使用三数取中法选定枢轴 */
     m := low + (high - low)/2
