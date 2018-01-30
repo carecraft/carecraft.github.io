@@ -97,7 +97,31 @@ layout: default
                     </div>
                 </section>
                 {% endif %}
-
+                <!-- Html Elements for Search -->
+                <hr>
+                <h5>Search</h5>
+                <div id="search-container">
+                <input results="s" type="search" id="search-input" placeholder="" >
+                <div id="results-container"></div>
+                </div>
+                <script src="{{site.baseurl}}/js/jekyll-search.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                      SimpleJekyllSearch({
+                        searchInput: document.getElementById('search-input'),
+                        resultsContainer: document.getElementById('results-container'),
+                        json: '{{site.baseurl}}/search.json',
+                        searchResultTemplate: '<div><a href="{url}">{title}</a></div>',
+                        noResultsText: '',
+                        templateMiddleware: function(prop, value, template) {
+                            if (prop === 'bar') {
+                                return value.replace(/^\//, '')
+                            }
+                        },
+                        limit: 10,
+                        fuzzy: true,
+                        exclude: ['Welcome']
+                      })
+                </script>
                 <!-- Short About -->
                 <section class="visible-md visible-lg">
                     <hr><h5><a href="{{'/about/' | prepend: site.baseurl }}">ABOUT ME</a></h5>
