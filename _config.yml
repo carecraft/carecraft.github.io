@@ -3,10 +3,10 @@ title: Halt in Air
 SEOTitle: 驻足云端 | Halt in Air
 header-img: img/home-bg-m.jpg
 email: carecraft@163.com
-description: "关于技术和生活 | 这里是 @Max马昕 的个人博客"
+description: "关于技术与阅读 | 这里是 @Max马昕 的个人博客"
 keyword: "Max马昕"
-url: "https://libranx.com"              # your host, for absolute URL
-enforce_ssl: libranx.com
+url: "https://carecraft.github.io"              # your host, for absolute URL
+# enforce_ssl: carecraft.github.io
 baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
 
 
@@ -52,13 +52,7 @@ kramdown:
 #disqus_username: _your_disqus_short_name_
 
 # Netease setttings
-netease_comment: true
-
-# Duoshuo settings
-duoshuo_username: 
-# Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: false                     # set to false if you want to use Comment without Sharing
-
+netease_comment: false
 
 
 

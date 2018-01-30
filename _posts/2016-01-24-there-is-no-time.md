@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 读《哪有没时间这回事》
-category : read-blog
+category : read
 author: Max
 tags : 时间管理
 ---
