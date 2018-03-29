@@ -24,11 +24,11 @@ tags:
 
 #### `kill()`
 
-```
+~~~c
 #include <sys/types.h>
 #include <signal.h>
 int kill(pid_t pid, int sig);
-```
+~~~
 
 可以向任意进程发送任意进程号。调用成功返回 0； 否则，返回 -1。
 
