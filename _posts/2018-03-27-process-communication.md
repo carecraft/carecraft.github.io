@@ -9,6 +9,7 @@ header-img: "img/post-2018.jpg"
 catalog:    true
 tags:
     - process
+    - linux
 ---
 
 ## 1. 信号
