@@ -54,6 +54,8 @@ kramdown:
 # Netease setttings
 netease_comment: false
 
+# gitment setttings
+gitment_comment: true
 
 
 # Analytics settings

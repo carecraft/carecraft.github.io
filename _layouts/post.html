@@ -95,11 +95,15 @@ layout: default
                 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
                 <!-- 网易云跟帖 评论框 end -->
                 {% endif %}
+
+                {% if site.gitment_comment %}
+                <!-- GITMENT 评论框 start -->
                 <div id="container"></div>
                 <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
                 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
                 <script>
                 var gitment = new Gitment({
+                  id: '{{ page.date }}',
                   owner: 'carecraft',
                   repo: 'Gitment',
                   oauth: {
@@ -109,6 +113,8 @@ layout: default
                 })
                 gitment.render('container')
                 </script>
+                <!-- GITMENT 评论框 end -->
+                {% endif %}
             </div>
 
     <!-- Side Catalog Container -->
