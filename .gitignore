@@ -8,3 +8,7 @@ Thumbs.db
 
 .rbenv-version
 .rvmrc
+
+.vscode/
+node_modules/
+
