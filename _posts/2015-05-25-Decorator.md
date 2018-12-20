@@ -16,7 +16,7 @@ tags : [design patterns, decorator]
 
 ## UML类图
 
-![]()
+![decoratorpattern](/img/in-post/designpatterns/decorator.jpg)
 
 该模式中包含的角色及其职责如下：
 
@@ -30,18 +30,15 @@ tags : [design patterns, decorator]
 
 * 装饰抽象类(Decorator)
 
-  继承Component类，从外类来扩展Component类的功能。但对于Component来说，是无需知道Decorator
-  的存在的。
+  继承Component类，从外类来扩展 Component 类的功能。但对于Component来说，是无需知道 Decorator 的存在的。
 
-  如果只有一个ConcreteComponent类而没有抽象的Component类，那么Decorator类可以是ConcreteComponent
-  的一个子类。
+  如果只有一个 ConcreteComponent 类而没有抽象的 Component 类，那么 Decorator 类可以是 ConcreteComponent 的一个子类。
 
 * 具体装饰对象(ConcreteDecorator)
 
-  给Component添加职责。
+  给 Component 添加职责。
 
-  如果只有一个ConcreteDecorator类，那么就没有必要建立一个单独的Decorator类，而可以把Decorator
-  和ConcreteDecorator的职责合并成一个类。
+  如果只有一个 ConcreteDecorator 类，那么就没有必要建立一个单独的 Decorator 类，而可以把 Decorator 和 ConcreteDecorator 的职责合并成一个类。
 
 ## 特点
 
@@ -50,8 +47,3 @@ tags : [design patterns, decorator]
 
 总结下来，装饰模式有效的把类的核心职责和装饰功能区分开了。而且可以去除相关类中重复的装饰逻辑。
 
-## 参考
-
-1. []()
-
-2. []()
