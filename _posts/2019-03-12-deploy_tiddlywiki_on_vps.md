@@ -256,4 +256,4 @@ $ systemctl start nginx
 ## 参考
 
 1. [哆啦辉梦《在 Node.js 上运行 tiddlywiki》](http://1q88.cn/2018/tiddlywiki-node-deploy/)
-2. [正确使用 OpenSSL 自签发代码|邮件|域名|IP 证书（附免费可信任 IP 证书申请）](https://vircloud.net/operations/sign-ip-crt.html)
+2. [《正确使用 OpenSSL 自签发代码/邮件/域名/IP 证书（附免费可信任 IP 证书申请）》](https://vircloud.net/operations/sign-ip-crt.html)
