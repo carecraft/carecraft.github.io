@@ -10,6 +10,8 @@ tags:
     - tw
 ---
 
+*注：本文代码中`{`前的`\`需要移除。*
+
 # 1. 概念
 
 与 markdown 类似，WikiText 也是一种轻便的文本标记语言，但是更专注于链接和交互的特性。
@@ -128,7 +130,7 @@ CSS 类可以指定到一个标题:
 可以指定其他属性，并且这些属性可以使用 transclusions 或 variable references：
 ```
 [img width=32 class="tc-image" [Motovun Jack.jpg]]
-[img width={{!!mywidth}} class=<<image-classes>> [Motovun Jack.jpg]]
+[img width=\{\{!!mywidth}} class=<<image-classes>> [Motovun Jack.jpg]]
 ```
 
 ## 2.8 链接
@@ -275,20 +277,21 @@ And here is the second of several paragraphs.
 
 可以使用如下 Transclusion 标记语法引用其它 tiddler 的内容： 
 
-* `{{MyTiddler}}` 嵌入引用单个 tiddler
-* `{{MyTiddler||TemplateTitle}}` 通过一个指定的模板展示 tiddler
-* `{{||TemplateTitle}}` 不修改当前 tiddler 的情况下展示指定模板 tiddler
+* `\{\{MyTiddler}}` 嵌入引用单个 tiddler
+* `\{\{MyTiddler||TemplateTitle}}` 通过一个指定的模板展示 tiddler
+* `\{\{||TemplateTitle}}` 不修改当前 tiddler 的情况下展示指定模板 tiddler
 
 可以指定 tiddler 的部分内容进行引用：
-* `{{MyTiddler!!field}}` 嵌入引用指定 tiddler 的指定字段
-* `{{!!field}}` 嵌入引用当前 tiddler 的指定字段
-* `{{MyTiddler##index}}` 嵌入引用指定 tiddler 的指定索引号的属性
-* `{{##index}}` 嵌入引用当前 tiddler 的指定索引号的属性
+* `\{\{MyTiddler!!field}}` 嵌入引用指定 tiddler 的指定字段
+* `\{\{!!field}}` 嵌入引用当前 tiddler 的指定字段
+* `\{\{MyTiddler##index}}` 嵌入引用指定 tiddler 的指定索引号的属性
+* `\{\{##index}}` 嵌入引用当前 tiddler 的指定索引号的属性
 
-可以可用相似语法引用满足指定过滤器的多个 tiddler：
+可以用相似语法引用满足指定过滤器的多个 tiddler：
+
 ```
-{{{ [tag[mechanism]] }}}
-{{{ [tag[mechanism]] ||TemplateTitle}}}
+\{\{\{ [tag[mechanism]] }}}
+\{\{\{ [tag[mechanism]] ||TemplateTitle}}}
 ```
 
 ## 2.12 变量 Variable
@@ -302,7 +305,7 @@ And here is the second of several paragraphs.
 
 宏 Macros 是包含占位符的特殊变量，占位符在宏使用时填充:
 ```
-\define tags-of-current-tiddler() {{!!tags}}
+\define tags-of-current-tiddler() \{\{!!tags}}
 
 The tags are: <<tags-of-current-tiddler>>
 ```

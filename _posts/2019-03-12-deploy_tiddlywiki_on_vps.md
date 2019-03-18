@@ -13,7 +13,7 @@ tags:
 
 是搭建个人云端笔记服务的一次尝试。
 
-## TiddyWiki 安装
+## 1. TiddyWiki 安装
 
 [官网](https://tiddlywiki.com/)提供了详细教程，单机使用只要下载一个空的网页副本就可以了。对于存储，官网同样提供了多种方案，本例选择通过 Node.js 部署 tw 在 VPS 上。
 
@@ -35,9 +35,9 @@ tags:
     tiddlywiki --version
     ```
 
-## TiddyWiki 启动
+## 2. TiddyWiki 启动
 
-### 直接启动
+### 2.1 直接启动
 
 创建一个 tw 服务的文件夹：
 ```
@@ -51,21 +51,21 @@ tiddlywiki mynewwiki --listen
 
 访问 http://127.0.0.1:8080/  即可使用 tw 进行编辑。变更会自动保存在 VPS 上，点击 “save changes” 按钮可以下载离线副本。
 
-### 通过 pm2 启动
+### 2.2 通过 pm2 启动
 
 直接启动的话，如果会话关闭，服务也会随之关闭。想要随时随地都能访问到我们的 wiki，需要在后台启动 tw。因为是 node 服务，我们可以用 pm2 来启动和管理。
 
 1. 通过 npm 安装 pm2
 
     ```
-    npm install -g pm2
+    $ npm install -g pm2
     ```
 
 2. 后台启动
 
     ```
-    cd mynewwiki
-    pm2 start --name mynewwiki /usr/bin/tiddlywiki -- --server
+    $ cd mynewwiki
+    $ pm2 start --name mynewwiki /usr/bin/tiddlywiki -- --listen
     ```
 
 3. 查看后台进程
@@ -81,28 +81,15 @@ tiddlywiki mynewwiki --listen
      Use `pm2 show <id|name>` to get more details about an app
     ```
 
-## Nginx 反向代理
+## 3. 安全验证
 
 因为使用的是云服务器，一般默认不会对外暴露 8080 端口，因此需要在云服务器控制台添加安全组规则，允许访问指定端口。
 
-考虑到 "IP:Port" 访问的不便性，以及 tw 本身没有权限验证的不安全性，本例选择使用 nginx 做一层反向代理，同时增加密码验证。
+此外，为了避免任何人登录皆可修改，本例选择使用 TW 自带的 TLS 安全连接功能并添加访问权限进行验证。
 
-### 生成密码文件
+### 3.1 自签发 SSL IP证书
 
-1. 安装密码生成工具
-
-    ```
-    yum install httpd-tools
-    ```
-
-2. 生成密码文件
-
-    ```
-    htpasswd -c .passwd admin
-    ```
-    其中 .passwd 是文件名，admin 是账户名。
-
-### 自签发 SSL IP证书
+使用 TLS 验证需要 SSL 证书。证书可以从类似 https://letsencrypt.org/ 的网站申请，也可以自行签发。本例选择自行签发单 IP 证书。
 
 1. 安装密钥生成工具
 
@@ -224,36 +211,33 @@ tiddlywiki mynewwiki --listen
     Write out database with 1 new entries
     Data Base Updated
     ```
-
-### 配置 nginx
-
-```
-$ vim /etc/nginx/conf.d/tiddlywiki.conf 
-
-server {
-    listen       443 ssl;
-    server_name  localhost;
-
-    access_log  /var/log/nginx/host.access.log combined;
-
-    ssl_certificate /etc/pki/tls/127.0.0.1.crt;
-    ssl_certificate_key /etc/pki/tls/127.0.0.1.key;
-
-    location / {
-        proxy_pass   http://127.0.0.1:8080;
-        auth_basic   "password";
-        auth_basic_user_file    /path/to/.passwd;
-    }
-}
-```
-
-确认 VPS 控制台添加 TCP 443 端口访问权限后，启动 nginx 服务即可访问 tw 了:
+### 3.2 添加用户权限
 
 ```
-$ systemctl start nginx
+$ vim mynewwiki/myusers.csv
+
+username,password
+jane,do3
+andy,sm1th
+roger,m00re
 ```
 
-## 参考
+注：首行的 username 和 password 必须存在。
+
+### 3.3 设置启动参数
+
+```
+$ cd mynewwiki/
+$ cp /etc/pki/tls/127.0.0.1.crt .
+$ cp /etc/pki/tls/127.0.0.1.key .
+$ pm2 start --name mynewwiki /usr/bin/tiddlywiki -- --listen host=172.24.1.12 port=443 credentials=myusers.csv "readers=(authenticated)" writers=roger tls-key=127.0.0.1.key tls-cert=127.0.0.1.crt
+```
+
+TW listen 参数详见[官网](https://tiddlywiki.com/#WebServer)。host 选项指定 VPS 的网口 IP 地址。
+
+TW 的 WebServer 虽然提供了多用户验证登录功能，但其仅为少量用户的可信任网络设计。在 Internet 公开使用最好添加额外网关。
+
+## 4. 参考
 
 1. [哆啦辉梦《在 Node.js 上运行 tiddlywiki》](http://1q88.cn/2018/tiddlywiki-node-deploy/)
 2. [《正确使用 OpenSSL 自签发代码/邮件/域名/IP 证书（附免费可信任 IP 证书申请）》](https://vircloud.net/operations/sign-ip-crt.html)
